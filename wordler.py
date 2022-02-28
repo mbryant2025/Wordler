@@ -41,6 +41,8 @@ def words_left(green, yellow, gray):
 
     #update global list of letters to remove gray ones
     for i in range(5):
+        if gray[i] in gray[:i]:
+            continue
         yellowFlag = False
         if gray[i] != "_":
             for y in yellow_set:
@@ -149,6 +151,7 @@ for i in range(6):
     if i == 0:
         print(str(words_remaining) + " words remain")
         print("The next guess is " + first_guess)
+        print()
 
         results = ""
         while len(results) != 5:
